@@ -45,62 +45,53 @@ function MeetingRoom() {
     <div className="h-[calc(100vh-4rem-1px)]">
       <ResizablePanelGroup orientation="horizontal">
         {/* VIDEO PANEL */}
-        <ResizablePanel defaultSize={35} minSize={25} maxSize={100} className="relative">
-          <div className="absolute inset-0">
+        <ResizablePanel defaultSize={50} minSize={30} maxSize={70} className="flex flex-col relative">
+          {/* Video Area */}
+          <div className="flex-1 overflow-hidden">
             {layout === "grid" ? <PaginatedGridLayout /> : <SpeakerLayout />}
-
-            {/* PARTICIPANTS LIST OVERLAY */}
-            {showParticipants && (
-              <div className="absolute right-0 top-0 h-full w-75 bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
-                <CallParticipantsList onClose={() => setShowParticipants(false)} />
-              </div>
-            )}
           </div>
 
-          {/* VIDEO CONTROLS */}
-          <div className="absolute bottom-4 left-0 right-0">
-            <div className="flex flex-col items-center gap-4">
-              <div className="flex items-center gap-2 flex-wrap justify-center px-4">
-                <CallControls onLeave={() => router.push("/")} />
+          {/* Controls Area */}
+          <div className="flex items-center gap-2 justify-center p-4 border-t bg-background">
+            <CallControls onLeave={() => router.push("/")} />
 
-                <div className="flex items-center gap-2">
-                  <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                      <Button variant="outline" size="icon" className="size-10">
-                        <LayoutListIcon className="size-4" />
-                      </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent>
-                      <DropdownMenuItem onClick={() => setLayout("grid")}>
-                        Grid View
-                      </DropdownMenuItem>
-                      <DropdownMenuItem onClick={() => setLayout("speaker")}>
-                        Speaker View
-                      </DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" size="icon" className="size-10">
+                  <LayoutListIcon className="size-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuItem onClick={() => setLayout("grid")}>Grid View</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setLayout("speaker")}>Speaker View</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
 
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    className="size-10"
-                    onClick={() => setShowParticipants(!showParticipants)}
-                  >
-                    <UsersIcon className="size-4" />
-                  </Button>
+            <Button
+              variant="outline"
+              size="icon"
+              className="size-10"
+              onClick={() => setShowParticipants(!showParticipants)}
+            >
+              <UsersIcon className="size-4" />
+            </Button>
 
-                  <EndCallButton />
-                </div>
-              </div>
+            <EndCallButton />
+          </div>
+
+          {/* Participants Overlay */}
+          {showParticipants && (
+            <div className="absolute right-0 top-0 h-full w-75 bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60 z-10">
+              <CallParticipantsList onClose={() => setShowParticipants(false)} />
             </div>
-          </div>
+          )}
         </ResizablePanel>
 
         {/* HANDLE */}
         <ResizableHandle withHandle />
 
         {/* CODE EDITOR PANEL */}
-        <ResizablePanel defaultSize={65} minSize={25}>
+        <ResizablePanel defaultSize={50} minSize={30} maxSize={70}>
           <CodeEditor />
         </ResizablePanel>
       </ResizablePanelGroup>
