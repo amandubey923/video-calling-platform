@@ -73,7 +73,7 @@ function CommentDialog({ interviewId }: { interviewId: Id<"interviews"> }) {
         </Button>
       </DialogTrigger>
 
-      <DialogContent className="sm:max-w-[600px]">
+      <DialogContent className="sm:max-w-150">
         <DialogHeader>
           <DialogTitle>Interview Comment</DialogTitle>
         </DialogHeader>
@@ -89,7 +89,7 @@ function CommentDialog({ interviewId }: { interviewId: Id<"interviews"> }) {
               </div>
 
               {/* DISPLAY EXISTING COMMENTS */}
-              <ScrollArea className="h-[240px]">
+              <ScrollArea className="h-60">
                 <div className="space-y-4">
                   {existingComments.map((comment, index) => {
                     const interviewer = getInterviewerInfo(users, comment.interviewerId);

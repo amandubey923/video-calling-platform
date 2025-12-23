@@ -30,7 +30,7 @@ function MeetingSetup({ onSetupComplete }: { onSetupComplete: () => void }) {
 
   return (
     <div className="min-h-screen flex items-center justify-center p-6 bg-background/95">
-      <div className="w-full max-w-[1200px] mx-auto">
+      <div className="w-full max-w-300 mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* VIDEO PREVIEW CONTAINER */}
           <Card className="md:col-span-1 p-6 flex flex-col">
@@ -40,7 +40,7 @@ function MeetingSetup({ onSetupComplete }: { onSetupComplete: () => void }) {
             </div>
 
             {/* VIDEO PREVIEW */}
-            <div className="mt-4 flex-1 min-h-[400px] rounded-xl overflow-hidden bg-muted/50 border relative">
+            <div className="mt-4 flex-1 min-h-100 rounded-xl overflow-hidden bg-muted/50 border relative">
               <div className="absolute inset-0">
                 <VideoPreview className="h-full w-full" />
               </div>

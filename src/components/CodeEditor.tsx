@@ -44,7 +44,7 @@ function CodeEditor() {
                 </div>
                 <div className="flex items-center gap-3">
                   <Select value={selectedQuestion.id} onValueChange={handleQuestionChange}>
-                    <SelectTrigger className="w-[180px]">
+                    <SelectTrigger className="w-45">
                       <SelectValue placeholder="Select question" />
                     </SelectTrigger>
                     <SelectContent>
@@ -57,7 +57,7 @@ function CodeEditor() {
                   </Select>
 
                   <Select value={language} onValueChange={handleLanguageChange}>
-                    <SelectTrigger className="w-[150px]">
+                    <SelectTrigger className="w-37.5">
                       {/* SELECT VALUE */}
                       <SelectValue>
                         <div className="flex items-center gap-2">

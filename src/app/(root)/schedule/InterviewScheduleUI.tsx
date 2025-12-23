@@ -147,7 +147,7 @@ function InterviewScheduleUI() {
             <Button size="lg">Schedule Interview</Button>
           </DialogTrigger>
 
-          <DialogContent className="sm:max-w-[500px] h-[calc(100vh-200px)] overflow-auto">
+          <DialogContent className="sm:max-w-125 h-[calc(100vh-200px)] overflow-auto">
             <DialogHeader>
               <DialogTitle>Schedule Interview</DialogTitle>
             </DialogHeader>
@@ -238,8 +238,8 @@ function InterviewScheduleUI() {
                   <Calendar
                     mode="single"
                     selected={formData.date}
-                    onSelect={(date) => date && setFormData({ ...formData, date })}
-                    disabled={(date) => date < new Date()}
+                    onSelect={(date: any) => date && setFormData({ ...formData, date })}
+                    disabled={(date: Date) => date < new Date()}
                     className="rounded-md border"
                   />
                 </div>

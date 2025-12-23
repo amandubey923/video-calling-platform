@@ -49,7 +49,7 @@ function RecordingsPage() {
             ))}
           </div>
         ) : (
-          <div className="flex flex-col items-center justify-center h-[400px] gap-4">
+          <div className="flex flex-col items-center justify-center h-100 gap-4">
             <p className="text-xl font-medium text-muted-foreground">No recordings available</p>
           </div>
         )}
